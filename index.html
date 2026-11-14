@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daffa Luthfianza | Web Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Daffa Luthfianza, Informatics Engineering graduate focused on web development with PHP and Laravel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --ink: #1f2430;
+  --muted: #6b7280;
+  --soft: #f4f5f7;
+  --line: #e5e7eb;
+  --chip: #eceef2;
+  --chip-ink: #2b303b;
+  --purple: #20242d;
+  --pink: #20242d;
+  --orange: #20242d;
+  --shadow: 0 10px 30px rgba(20, 24, 33, .08);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0; padding: 20px;
+  background: #eceef1;
+  color: var(--ink);
+  font: 15px/1.6 "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--chip-ink); outline-offset: 3px; }
+h1, h2, h3, p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+.lead, .card, .job, .info { overflow-wrap: anywhere; }
+
+/* App frame */
+.app {
+  max-width: 1320px; margin: 0 auto;
+  background: #fff; border-radius: 32px; box-shadow: var(--shadow);
+  display: grid; grid-template-columns: 250px minmax(0, 1fr) 310px;
+}
+
+/* Sidebar */
+.side { padding: 28px 22px; align-self: start; position: sticky; top: 20px; }
+.logo { display: flex; align-items: center; gap: 12px; margin-bottom: 36px; }
+.mark {
+  width: 44px; height: 44px; border-radius: 14px; flex: none;
+  background: var(--purple); color: #fff; font-weight: 800; font-size: 1.2rem;
+  display: grid; place-items: center; box-shadow: 0 8px 18px rgba(20, 24, 33, .25);
+}
+.logo b { display: block; font-size: 1.15rem; line-height: 1.2; }
+.logo small { color: var(--muted); font-size: .78rem; }
+.side nav { display: flex; flex-direction: column; gap: 6px; }
+.side nav a { padding: 12px 18px; border-radius: 16px; font-weight: 600; color: var(--muted); }
+.side nav a:hover { background: var(--soft); color: var(--ink); }
+.side nav a.on {
+  background: #20242d; color: #fff;
+  box-shadow: 0 10px 22px rgba(20, 24, 33, .25);
+}
+
+/* Main */
+main { padding: 32px 28px 40px; min-width: 0; }
+.hi { color: var(--muted); font-weight: 600; }
+h1 { font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.1; margin: 2px 0 10px; letter-spacing: -.02em; }
+.lead { color: var(--muted); max-width: 60ch; }
+h2 { font-size: 1.3rem; margin: 36px 0 16px; }
+
+/* Quick cards */
+.quick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.qc {
+  display: flex; flex-direction: column; padding: 22px; border-radius: 28px;
+  color: #fff; box-shadow: var(--shadow); transition: transform .2s;
+}
+.qc:hover { transform: translateY(-3px); }
+.qc.purple { background: var(--purple); }
+.qc.pink { background: var(--pink); }
+.qc.orange { background: var(--orange); }
+.ic {
+  width: 44px; height: 44px; border-radius: 14px; margin-bottom: 36px;
+  background: rgba(255, 255, 255, .15); display: grid; place-items: center; font-weight: 800;
+}
+.qc h3 { font-size: 1.2rem; }
+.qc p { font-weight: 600; font-size: .92rem; margin-bottom: 18px; }
+.pill {
+  margin-top: auto; text-align: center; background: #fff; border-radius: 16px;
+  padding: 11px; font-weight: 700; font-size: .92rem;
+}
+.pill { color: #20242d; }
+
+/* Experience */
+.job { background: var(--soft); border-radius: 24px; padding: 8px; margin-bottom: 14px; }
+.bar {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;
+  padding: 12px 14px 12px 20px; border-radius: 18px; color: #fff; font-weight: 700;
+}
+.bar.purple { background: var(--purple); } .bar.pink { background: var(--pink); }
+.bar em {
+  font-style: normal; font-size: .8rem; background: #fff; color: var(--ink);
+  padding: 4px 12px; border-radius: 999px;
+}
+.job .body { padding: 14px 16px 10px; }
+.meta { color: var(--muted); font-size: .9rem; font-weight: 600; }
+.job ul { margin-top: 8px; }
+.job li { position: relative; padding-left: 16px; margin-top: 5px; }
+.job li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 50%; background: #20242d; }
+
+/* Education and projects */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.card { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 20px; box-shadow: var(--shadow); }
+.card h3 { font-size: 1.02rem; margin: 8px 0 4px; }
+.card p { color: var(--muted); font-size: .92rem; }
+.chip {
+  display: inline-block; background: var(--chip); color: var(--chip-ink);
+  font-size: .78rem; font-weight: 700; padding: 3px 11px; border-radius: 999px;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+
+/* Right panel */
+.panel { padding: 32px 26px 40px 4px; }
+.panel h2 { margin-top: 0; }
+.info {
+  display: flex; align-items: center; gap: 14px; padding: 14px; margin-bottom: 12px;
+  border-radius: 20px; background: #fff; box-shadow: var(--shadow); word-break: break-word;
+}
+.dot {
+  width: 46px; height: 46px; border-radius: 50%; flex: none; color: #fff; font-weight: 800;
+  display: grid; place-items: center;
+}
+.dot.purple { background: var(--purple); } .dot.pink { background: var(--pink); } .dot.orange { background: var(--orange); }
+.info small { display: block; color: var(--muted); font-size: .78rem; }
+.info b { font-size: .92rem; }
+.btns { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+.btn { padding: 12px 20px; border-radius: 18px; font-weight: 700; background: var(--soft); }
+.btn.main { background: #20242d; color: #fff; box-shadow: 0 10px 22px rgba(20, 24, 33, .25); }
+
+/* Laptop: the summary panel moves under the content */
+@media (max-width: 1180px) {
+  .app { grid-template-columns: 230px minmax(0, 1fr); }
+  .panel { grid-column: 2; padding: 0 28px 36px; }
+  .qc { padding: 18px; }
+  .qc h3 { font-size: 1.05rem; }
+}
+
+/* Tablet and mobile: one column with a sticky top menu */
+@media (max-width: 860px) {
+  .app { grid-template-columns: minmax(0, 1fr); }
+  .panel { grid-column: 1; padding: 0 22px 32px; }
+  .side {
+    position: sticky; top: 0; z-index: 20; background: #fff;
+    padding: 14px 18px 8px; border-radius: 32px 32px 0 0;
+  }
+  .logo { margin-bottom: 10px; }
+  .side nav { flex-direction: row; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none; }
+  .side nav::-webkit-scrollbar { display: none; }
+  .side nav a { white-space: nowrap; padding: 9px 16px; }
+  main { padding: 20px 22px 28px; }
+  [id] { scroll-margin-top: 112px; }
+}
+
+@media (max-width: 700px) {
+  body { padding: 0; background: #fff; }
+  .app { border-radius: 0; box-shadow: none; }
+  .side { border-radius: 0; box-shadow: 0 1px 0 var(--line); }
+  .mark { width: 36px; height: 36px; border-radius: 12px; font-size: 1rem; }
+  .logo small { display: none; }
+  main { padding: 20px 18px 28px; }
+  .panel { padding: 0 18px 28px; }
+  .ic { margin-bottom: 20px; }
+  .quick { grid-template-columns: 1fr; }
+  .qc { padding: 22px; }
+  .qc h3 { font-size: 1.2rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .qc { transition: none; }
+}
+
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="side">
+    <a class="logo" href="#top">
+      <span class="mark">D</span>
+      <span><b>Daffa.</b><small>Web Developer Portfolio</small></span>
+    </a>
+    <nav aria-label="Main">
+      <a class="on" href="#top">Overview</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
+
+  <main id="top">
+    <p class="hi">Hello, I'm</p>
+    <h1>Daffa Luthfianza, S.Kom.</h1>
+    <p class="lead">Informatics Engineering graduate and web developer working with PHP and Laravel. I started learning programming through online courses in 2020 and have since built web applications through an internship and academic projects. Open to opportunities in software development, IT support, and network-related roles.</p>
+
+    <h2>Quick Access</h2>
+    <div class="quick">
+      <a class="qc purple" href="Daffa_Luthfianza_CV.pdf" download>
+        <span class="ic">CV</span>
+        <h3>Curriculum Vitae</h3>
+        <p>One page, PDF</p>
+        <span class="pill">Download CV</span>
+      </a>
+      <a class="qc pink" href="#projects">
+        <span class="ic">7</span>
+        <h3>Projects</h3>
+        <p>Web apps I have built</p>
+        <span class="pill">View Projects</span>
+      </a>
+      <a class="qc orange" href="#experience">
+        <span class="ic">2</span>
+        <h3>Experience</h3>
+        <p>Internship and instructor</p>
+        <span class="pill">See Experience</span>
+      </a>
+    </div>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="job">
+        <div class="bar purple"><span>Backend Web Developer Intern</span><em>Aug 2025 - Nov 2025</em></div>
+        <div class="body">
+          <p class="meta">Dinas Komunikasi dan Informatika Kabupaten Ciamis</p>
+          <ul>
+            <li>Developed backend modules for a reservation application, including booking and schedule availability.</li>
+            <li>Built admin management and report features using PHP (Laravel) and MySQL.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="bar pink"><span>Computer Technician Instructor</span><em>Jan 2022 - Dec 2022</em></div>
+        <div class="body">
+          <p class="meta">LPK Kurnia, Banjar</p>
+          <ul>
+            <li>Assisted in training sessions for computer and laptop maintenance.</li>
+            <li>Provided support in teaching basic hardware and software troubleshooting.</li>
+            <li>Taught in the government-funded Work Skills Education Program (PKK) 2022 by Kemendikbudristek, after completing the Computer Technician course and earning a Level 3 KKNI certificate.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="cards">
+        <div class="card">
+          <span class="chip">Aug 2022 - Oct 2026</span>
+          <h3>STMIK Mardira Indonesia, Bandung</h3>
+          <p>Bachelor of Computer (S.Kom.) in Informatics Engineering</p>
+          <p>GPA 3.63 / 4.00</p>
+        </div>
+        <div class="card">
+          <span class="chip">Jul 2018 - Jun 2021</span>
+          <h3>SMKN 2 Banjar</h3>
+          <p>Computer and Network Engineering</p>
+          <p>Final grade 84.93. Member of the Production Unit (Computer and Network Technician Team).</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="cards">
+
+        <div class="card">
+          <span class="chip">Full-Stack Web Developer</span>
+          <h3>E-Tourism Jalatrang Village</h3>
+          <p>Tour package ordering platform with an admin dashboard and an Apriori-based product recommendation feature.</p>
+          <div class="tags"><span class="chip">PHP (Laravel)</span><span class="chip">Livewire</span><span class="chip">SQLite</span></div>
+        </div>
+
+        <div class="card">
+          <span class="chip">Backend Web Developer</span>
+          <h3>Japan Tour Package Booking Website</h3>
+          <p>Client project, name withheld, built with a frontend developer. Package and order management, Midtrans payment (sandbox mode), and automatic email notifications. A prototype with sample content.</p>
+          <div class="tags"><span class="chip">PHP (Laravel)</span><span class="chip">Midtrans</span></div>
+        </div>
+
+        <div class="card">
+          <span class="chip">Full-Stack Web Developer</span>
+          <h3>Point of Sales (POS) Application</h3>
+          <p>Sales transaction, product management, and sales report modules.</p>
+          <div class="tags"><span class="chip">PHP (Laravel)</span><span class="chip">MySQL</span><span class="chip">Bootstrap</span></div>
+        </div>
+
+        <div class="card">
+          <span class="chip">Backend Web Developer</span>
+          <h3>Reservation Application, Diskominfo Ciamis</h3>
+          <p>Internship project with reservation booking, schedule availability, admin management, and report modules.</p>
+          <div class="tags"><span class="chip">PHP (Laravel)</span><span class="chip">MySQL</span><span class="chip">Bootstrap</span></div>
+        </div>
+
+        <div class="card">
+          <span class="chip">Frontend Web Developer</span>
+          <h3>Study and Business Tour Website</h3>
+          <p>Tour package listing, participant registration, and an admin dashboard for managing packages and participants.</p>
+          <div class="tags"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+        </div>
+
+        <div class="card">
+          <span class="chip">Frontend Web Developer</span>
+          <h3>SLB Negeri Cihaurbeuti Website</h3>
+          <p>School website with online forms, input validation, a dashboard, and registration modules.</p>
+          <div class="tags"><span class="chip">PHP</span><span class="chip">Bootstrap</span></div>
+        </div>
+
+        <div class="card">
+          <span class="chip">Researcher and Developer</span>
+          <h3>Final Project: Information Security Awareness Analysis</h3>
+          <p>Analysis of information security awareness among vocational high school students using the HAIS-Q questionnaire with AHP expert weighting, plus a dashboard for the results.</p>
+          <div class="tags"><span class="chip">Streamlit</span><span class="chip">Google Sheets</span></div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="certifications">
+      <h2>Certifications and Training</h2>
+      <div class="cards">
+
+        <div class="card">
+          <span class="chip">Dec 2021</span>
+          <h3>Computer Technician Certificate of Competency (Level 3 KKNI)</h3>
+          <p>Issued by LSK-TIK.</p>
+        </div>
+
+        <div class="card">
+          <span class="chip">Training</span>
+          <h3>Computer Technician Course, LPK Kurnia</h3>
+          <p>Computer technician training in Banjar, completed before earning the Level 3 KKNI certificate and teaching as an instructor.</p>
+        </div>
+
+        <div class="card">
+          <span class="chip">Dec 2020</span>
+          <h3>Progate Online Courses</h3>
+          <p>Certificates of completion for online programming courses.</p>
+          <div class="tags"><span class="chip">Web Development Path (Node.js)</span><span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">HTML &amp; CSS</span><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">Git</span><span class="chip">React</span><span class="chip">Sass</span><span class="chip">Command Line</span></div>
+        </div>
+
+        <div class="card">
+          <span class="chip">Aug 2025 - Nov 2025</span>
+          <h3>Internship Certificate (Kerja Praktek)</h3>
+          <p>Dinas Komunikasi dan Informatika Kabupaten Ciamis.</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <aside class="panel" id="contact">
+    <h2>Summary</h2>
+    <div class="info"><span class="dot purple"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><span><small>Education</small><b>STMIK Mardira Indonesia</b></span></div>
+    <div class="info"><span class="dot pink"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><small>Location</small><b>Cilacap, Indonesia</b></span></div>
+    <div class="info"><span class="dot orange"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4"/><path d="m16 8 4 4-4 4"/><path d="m13.5 5-3 14"/></svg></span><span><small>Main stack</small><b>PHP, Laravel, MySQL</b></span></div>
+    <div class="info"><span class="dot purple"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small>Email</small><b>daffaluthfianza33@<wbr>gmail.com</b></span></div>
+    <div class="btns">
+      <a class="btn main" href="Daffa_Luthfianza_CV.pdf" download>Download CV</a>
+      <a class="btn" href="https://linkedin.com/in/daffa-luthfianza">LinkedIn</a>
+      <a class="btn" href="mailto:daffaluthfianza33@gmail.com">Email me</a>
+    </div>
+  </aside>
+
+</div>
+</body>
+</html>
